@@ -1,0 +1,79 @@
+﻿@page
+@model Versta_test.Pages.IndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Список закаазов</title>
+</head>
+<body>
+    <p>
+        <a asp-page="Create">Перейти на страницу создания заказа</a>
+
+    </p>
+
+    <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Button" />
+    <table class="table" border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <td>
+                    Номер заказа 
+                </td>
+                <th>
+                    Город отправителя 
+                </th>
+                <th>
+                    Город получателя 
+                </th>
+                <th>
+                    Адрес отправителя 
+                </th>
+                <th>
+                    Адрес получателя 
+                </th>
+                <th>
+                    Вес груза 
+                </th>
+                <th>
+                    Дата забора груза 
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Order)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.townFrom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.townTo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.addrFrom)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.addrTo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date)
+                    </td>                   
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
